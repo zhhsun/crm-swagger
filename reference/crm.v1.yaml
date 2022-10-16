@@ -1680,7 +1680,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: ''
+      summary: Delete a In Stock Item
       operationId: delete-companies-company_id-stocks-stock-id-in-stocks-in_stack_id
       responses:
         '204':
