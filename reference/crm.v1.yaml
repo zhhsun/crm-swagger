@@ -1781,6 +1781,9 @@ components:
           description: 销售订单主题
         vendor:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -1826,6 +1829,9 @@ components:
           format: date
         owner:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -1846,16 +1852,20 @@ components:
         - transportion
         - commission
         - status
+        - createdAddress
+        - sendAddress
         - createdBy
         - createdAt
         - updatedBy
         - updatedAt
+        - deleted
         - deletedBy
         - deletedAt
         - startDate
         - endDate
-        - ownerId
-        - ownerName
+        - owner
+        - clause
+        - description
     Address:
       title: Address
       type: object
@@ -1868,6 +1878,11 @@ components:
           type: string
         address:
           type: string
+      required:
+        - country
+        - province
+        - city
+        - address
     OrderProduct:
       title: PurchaseProduct
       type: object
@@ -1936,6 +1951,9 @@ components:
           type: string
         detail:
           type: string
+      required:
+        - code
+        - detail
     SalesOrder:
       title: SalesOder
       type: object
@@ -1948,6 +1966,9 @@ components:
           type: string
         businessOpportunity:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -1957,6 +1978,9 @@ components:
           type: string
         customer:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -1964,6 +1988,9 @@ components:
               type: string
         contactor:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -1979,6 +2006,9 @@ components:
           type: string
         owner:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -2009,6 +2039,29 @@ components:
         deletedAt:
           type: string
           format: date-time
+      required:
+        - id
+        - title
+        - code
+        - businessOpportunity
+        - price
+        - customer
+        - contactor
+        - status
+        - createdAddress
+        - sendAddress
+        - endDate
+        - owner
+        - transportion
+        - clause
+        - description
+        - createdBy
+        - createdAt
+        - updatedBy
+        - updatedAt
+        - deleted
+        - deletedBy
+        - deletedAt
     Stock:
       title: stock
       type: object
@@ -2052,6 +2105,25 @@ components:
         deletedAt:
           type: string
           format: date-time
+      required:
+        - id
+        - title
+        - code
+        - batch
+        - inDate
+        - location
+        - endDate
+        - quantity
+        - totalQuantity
+        - safeQuantity
+        - note
+        - createdBy
+        - createdAt
+        - updatedBy
+        - updatedAt
+        - deleted
+        - deletedBy
+        - deletedAt
     Vendor:
       title: Vendor
       x-stoplight:
@@ -2076,6 +2148,9 @@ components:
           type: string
         owner:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -2100,6 +2175,24 @@ components:
         deletedAt:
           type: string
           format: date-time
+      required:
+        - id
+        - name
+        - officalSite
+        - location
+        - tel
+        - industry
+        - email
+        - companyOwnedType
+        - owner
+        - description
+        - createdBy
+        - createdAt
+        - updatedBy
+        - updatedAt
+        - deleted
+        - deletedBy
+        - deletedAt
     StockIn:
       title: StockIn
       x-stoplight:
@@ -2116,6 +2209,9 @@ components:
           type: integer
         vendor:
           type: object
+          required:
+            - id
+            - name
           properties:
             id:
               type: string
@@ -2129,6 +2225,10 @@ components:
           type: string
         purchaseOrder:
           type: object
+          required:
+            - id
+            - title
+            - code
           properties:
             id:
               type: string
@@ -2138,6 +2238,10 @@ components:
               type: string
         deliveryOrder:
           type: object
+          required:
+            - id
+            - title
+            - code
           properties:
             id:
               type: string
@@ -2164,6 +2268,25 @@ components:
         deletedAt:
           type: string
           format: date-time
+      required:
+        - id
+        - quantity
+        - type
+        - batch
+        - vendor
+        - inBy
+        - inByName
+        - inDate
+        - purchaseOrder
+        - deliveryOrder
+        - description
+        - createdBy
+        - createdAt
+        - updatedBy
+        - updatedAt
+        - deleted
+        - deletedBy
+        - deletedAt
     StockOut:
       title: StockOut
       x-stoplight:
@@ -2178,6 +2301,10 @@ components:
           type: string
         stock:
           type: object
+          required:
+            - id
+            - title
+            - batch
           properties:
             id:
               type: string
@@ -2193,6 +2320,10 @@ components:
           type: string
         salesOrder:
           type: object
+          required:
+            - id
+            - title
+            - code
           properties:
             id:
               type: string
@@ -2219,6 +2350,23 @@ components:
         deletedAt:
           type: string
           format: date-time
+      required:
+        - id
+        - quantity
+        - type
+        - stock
+        - outBy
+        - outByName
+        - outDate
+        - salesOrder
+        - description
+        - createdBy
+        - createdAt
+        - updatedBy
+        - updatedAt
+        - deleted
+        - deletedBy
+        - deletedAt
 tags:
   - name: Purchase Order Management
   - name: Sales Order Management
